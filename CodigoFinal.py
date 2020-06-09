@@ -1,12 +1,10 @@
-#TFG16 + OPTIMIZADO + adaptado a la nueva experimentacion
-
+#Lectura experimentación - 14 días - Dos semanas
 import statistics
 import numpy as np
 from os import listdir
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 uno = []
 dos = []
@@ -28,15 +26,13 @@ finpoints = []
 totalPoints = []
 porcentajes = []
 
-
+#Lectura de la carpeta donde se encuentran los datos de experimentacion
 archivos = []
 d = "./Documents/Experimentacion"
 for path in os.listdir(d):
     full_path = os.path.join(d, path)
     if os.path.isfile(full_path):
         archivos.append(full_path)
-
-#print(archivos)
 
 for ar in archivos:
     with open(ar, "r") as ins:
@@ -100,316 +96,212 @@ for ar in archivos:
 MediaSizeTotal = round((len(uno) + len(dos) + len(tres) + len(cuatro) + len(cinco) + len(seis) + len(siete) + len(ocho) + len(nueve) + len(diez) + len(once) + len(doce) + len(trece) + len(catorce))/14)
 SizeTotal = (len(uno) + len(dos) + len(tres) + len(cuatro) + len(cinco) + len(seis) + len(siete) + len(ocho) + len(nueve) + len(diez) + len(once) + len(doce) + len(trece) + len(catorce))
 
+#Obtencion de informacion importante para la creacion de datos sinteticos
 
-
-#uno
-punoPorcFin = float(uno[len(uno)-1]) # Para coger el ultimo porcentaje, porq cuando no esta duplica el ultimo porcentaje
+#UNO
+punoPorcFin = float(uno[len(uno)-1]) # Para recoger el ultimo porcentaje, porque cuando no esta duplicado es el ultimo porcentaje
 for p in range(len(uno)):
     punoF = float(uno[p])
     if (punoF != 0.0) and (len(startpoints)==0):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 0) and (len(finpoints) == 0):
         porcentajes.append(punoF)
-
-
     if punoF == punoPorcFin and len(finpoints) == 0 and len(startpoints) != 0: 
-        #Para dejar el primer valor que coincida, x eso es 2
+        #Para dejar el primer valor que coincida, por eso es 2
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[0]-startpoints[0])
 
-#dos
+#DOS
 pdosPorcFin = float(dos[len(dos)-1])
 for p in range(len(dos)):
     pdosF = float(dos[p])
     if (pdosF != 0.0) and (len(startpoints)==1):
         startpoints.append(p + 1)
-    
     if (len(startpoints) != 1) and (len(finpoints) == 1):
         porcentajes.append(pdosF)
-
     if pdosF == pdosPorcFin and len(finpoints) == 1 and len(startpoints) != 1: 
         finpoints.append(p + 2)
     
 totalPoints.append(finpoints[1]-startpoints[1])
 
-#tres
+#TRES
 ptresPorcFin = float(tres[len(tres)-1])
 for p in range(len(tres)):
     ptresF = float(tres[p])
     if (ptresF != 0.0) and (len(startpoints) == 2):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 2) and (len(finpoints) == 2):
         porcentajes.append(ptresF)
-
     if ptresF == ptresPorcFin and len(finpoints) == 2 and len(startpoints) != 1: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[2]-startpoints[2])
 
-#cuatro
+#CUATRO
 pcuatroPorcFin = float(cuatro[len(cuatro)-1])
 for p in range(len(cuatro)):
     pcuatroF = float(cuatro[p])
     if (pcuatroF != 0.0) and (len(startpoints) == 3):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 3) and (len(finpoints) == 3):
         porcentajes.append(pcuatroF)
-    
     if pcuatroF == pcuatroPorcFin and len(finpoints) == 3 and len(startpoints) != 3: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[3]-startpoints[3])
 
-#cinco
+#CINCO
 pcincoPorcFin = float(cinco[len(cinco)-1])
 for p in range(len(cinco)):
     pcincoF = float(cinco[p])
     if (pcincoF != 0.0) and (len(startpoints)  == 4):
         startpoints.append(p + 1)
-
     if (len(startpoints)  != 4) and (len(finpoints)  == 4):
         porcentajes.append(pcincoF)
-
     if pcincoF == pcincoPorcFin and len(finpoints)  == 4 and len(startpoints)  != 4: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[4]-startpoints[4])
 
-#seis
+#SEIS
 pseisPorcFin = float(seis[len(seis)-1])
 for p in range(len(seis)):
     pseisF = float(seis[p])
     if (pseisF != 0.0) and (len(startpoints) == 5):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 5) and (len(finpoints)  == 5):
         porcentajes.append(pseisF)
-
     if pseisF == pseisPorcFin and len(finpoints)  == 5 and len(startpoints) != 5: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[5]-startpoints[5])
 
-#siete
+#SIETE
 psietePorcFin = float(siete[len(siete)-1])
 for p in range(len(siete)):
     psieteF = float(siete[p])
     if (psieteF != 0.0) and (len(startpoints) == 6):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 6) and (len(finpoints) == 6):
         porcentajes.append(psieteF)
-
     if psieteF == psietePorcFin and len(finpoints) == 6 and len(startpoints) != 6: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[6]-startpoints[6])
 
-#ocho
-pochoPorcFin = float(ocho[len(ocho)-1]) # Para coger el ultimo porcentaje, porq cuando no esta duplica el ultimo porcentaje
+#OCHO
+pochoPorcFin = float(ocho[len(ocho)-1]) 
 for p in range(len(ocho)):
     pochoF = float(ocho[p])
     if (pochoF != 0.0) and (len(startpoints)==7):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 7) and (len(finpoints) == 7):
         porcentajes.append(pochoF)
-
-
     if pochoF == pochoPorcFin and len(finpoints) == 7 and len(startpoints) != 7: 
-        #Para dejar el primer valor que coincida, x eso es 2
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[7]-startpoints[7])
 
-#nueve
+#NUEVE
 pnuevePorcFin = float(nueve[len(nueve)-1])
 for p in range(len(nueve)):
     pnueveF = float(nueve[p])
     if (pnueveF != 0.0) and (len(startpoints)==8):
         startpoints.append(p + 1)
-    
     if (len(startpoints) != 8) and (len(finpoints) == 8):
         porcentajes.append(pnueveF)
-
     if pnueveF == pnuevePorcFin and len(finpoints) == 8 and len(startpoints) != 8: 
         finpoints.append(p + 2)
     
 totalPoints.append(finpoints[8]-startpoints[8])
 
-#diez
+#DIEZ
 pdiezPorcFin = float(diez[len(diez)-1])
 for p in range(len(diez)):
     pdiezF = float(diez[p])
     if (pdiezF != 0.0) and (len(startpoints) == 9):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 9) and (len(finpoints) == 9):
         porcentajes.append(pdiezF)
-
     if pdiezF == pdiezPorcFin and len(finpoints) == 9 and len(startpoints) != 9: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[9]-startpoints[9])
 
-#once
+#ONCE
 poncePorcFin = float(once[len(once)-1])
 for p in range(len(once)):
     ponceF = float(once[p])
     if (ponceF != 0.0) and (len(startpoints) == 10):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 10) and (len(finpoints) == 10):
         porcentajes.append(ponceF)
-    
     if ponceF == poncePorcFin and len(finpoints) == 10 and len(startpoints) != 10: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[10]-startpoints[10])
 
-#doce
+#DOCE
 pdocePorcFin = float(doce[len(doce)-1])
 for p in range(len(doce)):
     pdoceF = float(doce[p])
     if (pdoceF != 0.0) and (len(startpoints)  == 11):
         startpoints.append(p + 1)
-
     if (len(startpoints)  != 11) and (len(finpoints)  == 11):
         porcentajes.append(pdoceF)
-
     if pdoceF == pdocePorcFin and len(finpoints)  == 11 and len(startpoints)  != 11: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[11]-startpoints[11])
 
-#trece
+#TRECE
 ptrecePorcFin = float(trece[len(trece)-1])
 for p in range(len(trece)):
     ptreceF = float(trece[p])
     if (ptreceF != 0.0) and (len(startpoints) == 12):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 12) and (len(finpoints)  == 12):
         porcentajes.append(ptreceF)
-
     if ptreceF == ptrecePorcFin and len(finpoints)  == 12 and len(startpoints) != 12: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[12]-startpoints[12])
 
-#catorce
+#CATORCE
 pcatorcePorcFin = float(catorce[len(catorce)-1])
 for p in range(len(catorce)):
     pcatorceF = float(catorce[p])
     if (pcatorceF != 0.0) and (len(startpoints) == 13):
         startpoints.append(p + 1)
-
     if (len(startpoints) != 13) and (len(finpoints) == 13):
         porcentajes.append(pcatorceF)
-
     if pcatorceF == pcatorcePorcFin and len(finpoints) == 13 and len(startpoints) != 13: 
         finpoints.append(p + 2)
 
 totalPoints.append(finpoints[13]-startpoints[13])
 
-#MEDIAS
 MediaPuntoComienzo = DesvPuntoComienzo = 0
 MediaPuntoFinal = DesvPuntoFinal = 0
 MediaPuntosPor = DesvPuntosPor = 0
 
+#Media y desviacion estandar - PUNTO COMIENZO
 MediaPuntoComienzo = np.average(startpoints)
 MediaPuntoComienzoRound = round(MediaPuntoComienzo)
-DesvPuntoComienzo = statistics.stdev(startpoints) #ESTO SE SUPONE QUE ES DESVIACION ESTANDAR
+DesvPuntoComienzo = statistics.stdev(startpoints)
 
-
+#Media y desviacion estandar - PUNTO FINAL
 MediaPuntoFinal = np.average(finpoints)
 MediaPuntoFinalRound = round(MediaPuntoFinal)
 DesvPuntoFinal = statistics.stdev(finpoints)
 
-
+#Media y desviacion estandar - PORCENTAJE PRECISION
 MediaPuntosPor = np.average(porcentajes)
 DesvPuntosPor = statistics.stdev(porcentajes)
 
-
-######PRINTS
-print("uno - Tamaño", len(uno))
-print("dos - Tamaño", len(dos))
-print("tres - Tamaño", len(tres))
-print("cuatro - Tamaño", len(cuatro))
-print("cinco - Tamaño", len(cinco))
-print("seis - Tamaño", len(seis))
-print("siete - Tamaño", len(siete))
-print("ocho - Tamaño", len(ocho))
-print("nueve - Tamaño", len(nueve))
-print("diez - Tamaño", len(diez))
-print("once - Tamaño", len(once))
-print("doce - Tamaño", len(doce))
-print("trece - Tamaño", len(trece))
-print("catorce - Tamaño", len(catorce))
-
+#Resultados de los datos recodigos
 print("Media tamaño total experimentacion: ", MediaSizeTotal)
 print("Tamaño total experimentacion: ", SizeTotal)
-
-print()
-print("uno - Aparece el objeto en el punto:", startpoints[0])
-print("uno - Desaparece el objeto en el punto:", finpoints[0])
-print("uno - Numero de puntos donde aparece el objeto" , totalPoints[0])
-print()
-print("dos - Aparece el objeto en el punto:", startpoints[1])
-print("dos - Desaparece el objeto en el punto:", finpoints[1])
-print("dos - Numero de puntos donde aparece el objeto" , totalPoints[1])
-print()
-print("tres - Aparece el objeto en el punto:", startpoints[2])
-print("tres - Desaparece el objeto en el punto:", finpoints[2])
-print("tres - Numero de puntos donde aparece el objeto" , totalPoints[2])
-print()
-print("cuatro - Aparece el objeto en el punto:", startpoints[3])
-print("cuatro - Desaparece el objeto en el punto:", finpoints[3])
-print("cuatro - Numero de puntos donde aparece el objeto" , totalPoints[3])
-print()
-print("cinco - Aparece el obejto en el punto:", startpoints[4])
-print("cinco - Desaparece el objeto en el punto:", finpoints[4])
-print("cinco - Numero de puntos donde aparece el objeto" , totalPoints[4])
-print()
-print("seis - Aparece el objeto en el punto:", startpoints[5])
-print("seis - Desaparece el objeto en el punto:", finpoints[5])
-print("seis - Numero de puntos donde aparece el objeto" , totalPoints[5])
-print()
-print("siete - Aparece el objeto en el punto:", startpoints[6])
-print("siete - Desaparece el objeto en el punto:", finpoints[6])
-print("siete - Numero de puntos donde aparece el objeto" , totalPoints[6])
-print()
-print("ocho - Aparece el objeto en el punto:", startpoints[7])
-print("ocho - Desaparece el objeto en el punto:", finpoints[7])
-print("ocho - Numero de puntos donde aparece el objeto" , totalPoints[7])
-print()
-print("nueve - Aparece el objeto en el punto:", startpoints[8])
-print("nueve - Desaparece el objeto en el punto:", finpoints[8])
-print("nueve - Numero de puntos donde aparece el objeto" , totalPoints[8])
-print()
-print("diez - Aparece el objeto en el punto:", startpoints[9])
-print("diez - Desaparece el objeto en el punto:", finpoints[9])
-print("diez - Numero de puntos donde aparece el objeto" , totalPoints[9])
-print()
-print("once - Aparece el objeto en el punto:", startpoints[10])
-print("once - Desaparece el objeto en el punto:", finpoints[10])
-print("once - Numero de puntos donde aparece el objeto" , totalPoints[10])
-print()
-print("doce - Aparece el obejto en el punto:", startpoints[11])
-print("doce - Desaparece el objeto en el punto:", finpoints[11])
-print("doce - Numero de puntos donde aparece el objeto" , totalPoints[11])
-print()
-print("trece - Aparece el objeto en el punto:", startpoints[12])
-print("trece - Desaparece el objeto en el punto:", finpoints[12])
-print("trece - Numero de puntos donde aparece el objeto" , totalPoints[12])
-print()
-print("catorce - Aparece el objeto en el punto:", startpoints[13])
-print("catorce - Desaparece el objeto en el punto:", finpoints[13])
-print("catorce - Numero de puntos donde aparece el objeto" , totalPoints[13])
 print()
 print("Media del punto donde aparece el objeto", MediaPuntoComienzoRound )
 print("Desv del punto donde aparece el objeto", DesvPuntoComienzo )
@@ -422,28 +314,18 @@ print("Desviacion puntos Porcentaje:", DesvPuntosPor)
 print()
 
 print(".....................................................................................................................................")
-
-
+#Creacion datos sinteticos - ENTRENAMIENTO
 import numpy as np
 import matplotlib.pyplot as plt
-
-FileAnormaly = open("./Documents/anormalyScore.txt", "w")
-FileTrain = open("./Documents/DatawiTrainTri.txt", "w")
-FileTest = open("./Documents/DatawiTestTri.txt", "w")
-PtosTrain = open("./Documents/PuntosTrain.txt", "w")
-PtosTest = open("./Documents/PuntosTest.txt", "w")
 
 PtosTestCom = []
 PtosTestFin = []
 
+#Creacion - Puntos tiempo de comienzo
+muTimeComTrain = MediaPuntoComienzoRound #Media - Calculada de la experimentacion
+sigmaTimeComTrain = DesvPuntoComienzo #Desviacion Estandar - Calculada de la experimentacion
 
-
-#CREACION PUNTOS TIEMPO COMIENZO
-muTimeComTrain = MediaPuntoComienzoRound #1214
-sigmaTimeComTrain = DesvPuntoComienzo #34.135584003179076 #desviacion estandar
-
-
-numRTimeComTrain = 100 #xq es 1 mes
+numRTimeComTrain = 100
 
 NPointsRTimeComTrain = []
 pointsTimeComTrain = np.random.normal(muTimeComTrain, sigmaTimeComTrain, numRTimeComTrain)
@@ -458,19 +340,18 @@ print("Puntos time COM creados aplicando los filtros", NPointsRTimeSortedComTrai
 print("Tamaño array de puntos time COM con filtros", len(NPointsRTimeComTrain))
 print()
 
-
-#CREACION PUNTOS TIEMPO FINAL
+#Creacion - Puntos tiempo del final
 DataTrainPor = []
 DataTrain1 = []
 DataTrainWi = []
 DataTrainWiTiempo = []
 DataTrainWiPunto = []
 
-muTimeFinTrain = MediaPuntoFinalRound #1166
-sigmaTimeFinTrain = DesvPuntoFinal #31.836636577556817
+muTimeFinTrain = MediaPuntoFinalRound #Media - Calculada de la experimentacion
+sigmaTimeFinTrain = DesvPuntoFinal #Desviacion Estandar - Calculada de la experimentacion
 numRTimeFinTrain =  100
 
-SizeTrains =10 #xq es 15 dias
+SizeTrains =10 #Dias sintenticos que se quieren crear para el entrenamiento
 wi = 0
 wiAnt =0 #wi-1
 landa = 10 #λ
@@ -490,20 +371,17 @@ print("Tamaño array de puntos time FIN con filtros", len(NPointsRTimeFinTrain))
 
 print("Voy a crear", SizeTrains, "ficheros train")
 i = 0
+
+#Creacion dias de entrenamiento
 while (i != SizeTrains):
     if (NPointsRTimeSortedComTrain[i] < NPointsRTimeSortedFinTrain[i]):
         NumTrain = i+1
-        muPorTrain = MediaPuntosPor #0.7281953210091657
-        sigmaPorTrain = DesvPuntosPor #0.04873312558172425
+        muPorTrain = MediaPuntosPor #Media - Calculada de la experimentacion
+        sigmaPorTrain = DesvPuntosPor #Desviacion Estandar - Calculada de la experimentacion
 
         print("--TRAIN--", NumTrain)
         print("Inicio:", NPointsRTimeSortedComTrain[i])
         print("Fin:", NPointsRTimeSortedFinTrain[i])
-        PtosTrain.write(str(NPointsRTimeSortedComTrain[i]))
-        PtosTrain.write(";")
-        PtosTrain.write(str(NPointsRTimeSortedFinTrain[i]))
-        PtosTrain.write(";")
-        PtosTrain.write("\n")
 
         pointsTrain = NPointsRTimeSortedFinTrain[i] - NPointsRTimeSortedComTrain[i]
         pointsTrainI = int(pointsTrain)
@@ -511,7 +389,6 @@ while (i != SizeTrains):
 
         numRPorTrain = pointsTrainI
         pointsPorTrain = np.random.normal(muPorTrain, sigmaPorTrain, numRPorTrain)
-        #print(pointsWi)
 
         for a in range(int(NPointsRTimeSortedComTrain[i])):
             DataTrainPor.append(0)
@@ -551,20 +428,12 @@ while (i != SizeTrains):
         print("Es menor")
 
 
-
-    
-
 print("Tamaño TOTAL Data Train Porcentajes", len(DataTrainPor))
-#print("Data train PORCENTAJES", DataTrainPor)
 print("Tamaño TOTAL Data Train WI", len(DataTrainWi))
-#print("Data train WI", DataTrainWi)
 print("Tamaño TOTAL Data Train WI Tiempo", len(DataTrainWiTiempo))
-#print("Data train WI", DataTrainWiTiempo)
 print("Tamaño TOTAL Data Train WI Puntos", len(DataTrainWiPunto))
-#print("Data train WI puntos", DataTrainWiPunto)
 
-
-
+#Grafico donde se reprensetan los dias de entrenamiento creados sinteticamente
 '''
 plt.plot(DataTrainWi)
 plt.title('Synthetic Data Training - Detection Breakfast')
@@ -574,10 +443,7 @@ plt.show()
 '''
 
 print(".....................................................................................................................................")
-#CREACION DATA TEST
-
-#CREACION PUNTOS TIEMPO COMIENZO
-
+#Creacion datos sinteticos - PRUEBAS
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -592,18 +458,14 @@ wiAnt =0 #wi-1
 landa = 10 #λ
 p = 0
 
+#Creacion - Puntos tiempo
 NPointsRTimeComTest = []
-pointsTimeComTest =  np.random.randint(747.75, 1495.5, size=20) #low, high, size 6:00h -> 747.75, 12:00h -> 1495.5
+pointsTimeComTest =  np.random.randint(747.75, 1495.5, size=20) #6:00h -> 747.75, 12:00h -> 1495.5
                                                           
-#print(pointsTimeComTest)
-
 NPointsRTimeSortedComTest =sorted(pointsTimeComTest)
 
 print("Puntos TEST time COM creados ordenados", NPointsRTimeSortedComTest)
-#print("Tamaño TEST array de puntos time COM con filtros", len(NPointsRTimeSortedComTest))
 print()
-
-
 
 #print("Tamaño array de puntos time FIN con filtros", len(NPointsRTimeSortedFinTest))
 
@@ -611,7 +473,7 @@ SizeTests = (len(NPointsRTimeSortedComTest))
 print("Voy a crear", SizeTests/2, "ficheros test")
 
 pointsPorTest = []
-
+#Creacion dias de pruebas
 for i in range(int(SizeTests/2)):
     NumTest = i+1
     NPointsRTimeSortedFinTest = NPointsRTimeSortedComTest[int(SizeTests/2)+i] 
@@ -626,26 +488,14 @@ for i in range(int(SizeTests/2)):
     pointsTestI = int(pointsTest)
     print("Numero de puntos TEST:", pointsTestI)
 
-    PtosTest.write(str(NPointsRTimeSortedComTest[i]))
-    PtosTest.write(";")
-    PtosTest.write(str(NPointsRTimeSortedFinTest))
-    PtosTest.write(";")
-    PtosTest.write("\n")
-
-    ##UNA OPCION
-    #pointsPorTest = np.random.random_sample((pointsTestI,))  ##sin filtro de 0.5
-    ##
-    #OTRA OPCION
-
-    pointsPorT = np.random.random_sample((20000,))  ## + DE 0,5
+    pointsPorT = np.random.random_sample((20000,))  
 
     for r in range(len(pointsPorT)):
-        if (pointsPorT[r] > 0.5) and (len(pointsPorTest) != pointsTestI):
+        #El porcentaje siempre tiene que ser mayor a 0.5
+        if (pointsPorT[r] > 0.5) and (len(pointsPorTest) != pointsTestI): 
             #print(pointsPorT[r])
             pointsPorTest.append(pointsPorT[r])
 
-
-    ###
     print(len(pointsPorTest))
 
     for a in range(int(NPointsRTimeSortedComTest[i])):
@@ -656,7 +506,7 @@ for i in range(int(SizeTests/2)):
         DataTestPor.append(pointsPorTest[p])
         DataTest1.append(pointsPorTest[p])
 
-    for p in range(3916 - int(NPointsRTimeSortedFinTest)): #es 3916 porq es el final
+    for p in range(3916 - int(NPointsRTimeSortedFinTest)): #3916 por que es el punto final
         DataTestPor.append(0)
         DataTest1.append(0)
     tiempo = 0
@@ -683,16 +533,13 @@ for i in range(int(SizeTests/2)):
     print()
 
 print("Tamaño TOTAL Data TEST Porcentajes", len(DataTestPor)) 
-#print("Data train PORCENTAJES", DataTrainPor)
 print("Tamaño TOTAL Data TEST WI", len(DataTestWi))
-#print("Data test WI", DataTestWi)
 print("Tamaño TOTAL Data TEST WI Tiempo", len(DataTestWiTiempo))
-#print("Data test WI Tiempo", DataTestWiTiempo)
 print("Tamaño TOTAL Data TEST WI Punto", len(DataTestWiPunto))
-#print("Data test WI Punto", DataTestWiPunto)
 print("Puntos test Com: ", PtosTestCom)
 print("Puntos test Fin: ", PtosTestFin)
 
+#Grafico donde se reprensetan los dias de entrenamiento creados sinteticamente
 '''
 plt.plot(DataTestWi)
 plt.title('Synthetic Data Test - Detection Breakfast')
@@ -702,110 +549,38 @@ plt.show()
 
 
 print(".....................................................................................................................................")
-print("--SISTEMA DE ANOMALIAS--")
-
-
-#Creo un array bidimensional, añadiendo cuanto tiempo dura que wi es mayor de 0.5
-DataTestWiTiempoBi = np.zeros((len(DataTestWi), 2))
-DataTrainWiTiempoBi = np.zeros((len(DataTrainWi), 2))
-
-for a in range(len(DataTestWi)):
-    DataTestWiTiempoBi[a][0] = DataTestWi[a]
-    DataTestWiTiempoBi[a][1] = DataTestWiTiempo[a]
-
-for a in range(len(DataTrainWi)):
-    DataTrainWiTiempoBi[a][0] = DataTrainWi[a]
-    DataTrainWiTiempoBi[a][1] = DataTrainWiTiempo[a]
-
-
-#Creo un array bidimensional, añadiendo el punto en el que esta el valor wi
-DataTestWiPuntoBi = np.zeros((len(DataTestWi), 2))
-DataTrainWiPuntoBi = np.zeros((len(DataTrainWi), 2))
-
-for a in range(len(DataTestWi)):
-    DataTestWiPuntoBi[a][0] = DataTestWi[a]
-    DataTestWiPuntoBi[a][1] = DataTestWiPunto[a]
-
-for a in range(len(DataTrainWi)):
-    DataTrainWiPuntoBi[a][0] = DataTrainWi[a]
-    DataTrainWiPuntoBi[a][1] = DataTrainWiPunto[a]
-
-
-#Creo un array tridimensional
-DataTestWiTri = np.zeros((len(DataTestWi), 3))
-DataTrainWiTri = np.zeros((len(DataTrainWi), 3))
-
-for a in range(len(DataTestWi)):
-    DataTestWiTri[a][0] = DataTestWi[a]
-    DataTestWiTri[a][1] = DataTestWiPunto[a]
-    DataTestWiTri[a][2] = DataTestWiTiempo[a]
-
-
-for a in range(len(DataTrainWi)):
-    DataTrainWiTri[a][0] = DataTrainWi[a]
-    DataTrainWiTri[a][1] = DataTrainWiPunto[a]
-    DataTrainWiTri[a][2] = DataTrainWiTiempo[a]
-    val1 = str(DataTrainWi[a])
-    val2 = str(DataTrainWiPunto[a])
-    val3 = str(DataTrainWiTiempo[a])
-
-    x1 = val1.replace('.',',')
-    x2 = val2.replace('.',',')
-    x3 = val3.replace('.',',')
-
-    FileTrain.write(val1)
-    FileTrain.write(";")
-    FileTrain.write(val2)
-    FileTrain.write(";")
-    FileTrain.write(val3)
-    FileTrain.write(";")
-    FileTrain.write("\n")
-
-for a in range(len(DataTestWi)):
-    DataTestWiTri[a][0] = DataTestWi[a]
-    DataTestWiTri[a][1] = DataTestWiPunto[a]
-    DataTestWiTri[a][2] = DataTestWiTiempo[a]
-    val1 = str(DataTestWi[a])
-    val2 = str(DataTestWiPunto[a])
-    val3 = str(DataTestWiTiempo[a])
-
-    x1 = val1.replace('.',',')
-    x2 = val2.replace('.',',')
-    x3 = val3.replace('.',',')
-
-    FileTest.write(val1)
-    FileTest.write(";")
-    FileTest.write(val2)
-    FileTest.write(";")
-    FileTest.write(val3)
-    FileTest.write(";")
-    FileTest.write("\n")
-
-
-print("Media Train wi  -- ",np.average(DataTrainWi))
-print("Media Train punto -- ",np.average(DataTrainWiPunto))
-print("Media Train tiempo  -- ",np.average(DataTrainWiTiempo))
-
-
-print("Media Test wi  -- ",np.average(DataTestWi))
-print("Media Test punto -- ",np.average(DataTestWiPunto))
-print("Media Test tiempo  -- ",np.average(DataTestWiTiempo))
-
-
-
-#print(DataTestWi)
-#print(DataTestWiTri)
-
-
-
+#Creacion del sistema de detección de anomalias
 import numpy as np
 import rrcf
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-#Data
+print("--SISTEMA DE ANOMALIAS--")
 
+#Creacion array tridimensional, con el valor de wi, el punto y el tiempo.
+DataTestWiTri = np.zeros((len(DataTestWi), 3))
+DataTrainWiTri = np.zeros((len(DataTrainWi), 3))
+
+#Para los datos de pruebas
+for a in range(len(DataTestWi)):
+    DataTestWiTri[a][0] = DataTestWi[a]
+    DataTestWiTri[a][1] = DataTestWiPunto[a]
+    DataTestWiTri[a][2] = DataTestWiTiempo[a]
+
+#Para los datos de entrenamiento
+for a in range(len(DataTrainWi)):
+    DataTrainWiTri[a][0] = DataTrainWi[a]
+    DataTrainWiTri[a][1] = DataTrainWiPunto[a]
+    DataTrainWiTri[a][2] = DataTrainWiTiempo[a]
+
+
+print("Media Train wi  -- ",np.average(DataTrainWi))
+print("Media Train punto -- ",np.average(DataTrainWiPunto))
+print("Media Train tiempo  -- ",np.average(DataTrainWiTiempo))
+print("Media Test wi  -- ",np.average(DataTestWi))
+print("Media Test punto -- ",np.average(DataTestWiPunto))
+print("Media Test tiempo  -- ",np.average(DataTestWiTiempo))
 
 print("TRAIN - Tamaño Wi", len(DataTrainWiTri))   
 print("TEST - Tamaño Wi", len(DataTestWiTri))
@@ -815,9 +590,9 @@ datosUnidos = []
 datosUnidos = np.append(DataTrainWi,DataTestWi)
 print("Tamaño array datos unidos:", len(datosUnidos))
 
-#Compruebo los días test para detectar las anomalias
-#1º Comprobación --> que el punto de comienzo este entre 1064 y 1274
-#2º Comprobación --> que el punto de fin este entre 1214 y 1354
+#Se comprueba de forma manual los dias de pruebas para detectar el numero de anomalias
+    #1º Comprobación --> Que el punto de comienzo este entre 1064 y 1274
+    #2º Comprobación --> Que el punto de fin este entre 1214 y 1354
 
 totalPtosAnomalia =0
 for x in range(len(PtosTestCom)):
@@ -866,104 +641,86 @@ for x in range(len(PtosTestCom)):
 print()
 print("Total puntos con anomalias:", totalPtosAnomalia )
 
-# Set tree parameters
+#Establecer parametros de arbol
 num_trees = 15
 shingle_size = 5
 tree_size = 10
 
-# Create a forest of empty trees
+#Crear un bosque de arboles vacios
 forest = []
 for _ in range(num_trees):
     tree = rrcf.RCTree()
     forest.append(tree)
 
-# Use the "shingle" generator to create rolling window
+#Se usa el generador de "shingle" para crear una ventana movil
 pointsTrain = rrcf.shingle(DataTrainWiTri, size=shingle_size)
 pointsTest = rrcf.shingle(DataTestWiTri, size=shingle_size)
 
-# Create a dict to store anomaly score of each point
+#Crear un dict para almacenar el puntaje de anomalía de cada punto
 avg_codisp = {}
 avg_codispTest = {}
-#avg_codisp = np.zeros(len(datosUnidos))
 
-
+#Arbol para los datos de entrenamiento
 def train (forest):
     print("TRAIN")
-    # For each shingle... 
+    # Por cada shingle ...
     for index, point in enumerate(pointsTrain):
-        #print(index)
-        # For each tree in the forest...
+        #Por cada arbol en el bosque...
         for tree in forest:
-            # Insert the new point into the tree
-            #print("point train", point)
+            #Inserta el nuevo punto en el árbol
             tree.insert_point(point, index=index)
-            # Compute codisp on the new point...
+            #Calcula codisp en el nuevo punto ...
             new_codisp = tree.codisp(index)
             if not index in avg_codisp:
                 avg_codisp[index] = 0
-            # And take the average over all trees
+            #Y toma el promedio sobre todos los árboles
             avg_codisp[index] += new_codisp / num_trees
-
 
     #print("Forest dentro de train",forest)
     
 
-
+#Arbol para los datos de pruebas
 def test (forest):
     print("TEST")
-    #print("Forest dentro de Test", forest)
     indexTrain = len(DataTrainWiTri)
     for index2, point2 in enumerate(pointsTest):   
-        #print(index2) 
         for tree in forest:
-            # Insert the new point into the tree
+            #Inserta el nuevo punto en el árbol
             tree.insert_point(point2, index=indexTrain)
-            # Compute codisp on the new point...
+            #Calcula codisp en el nuevo punto ...
             new_codisp = tree.codisp(indexTrain)
-            #print("new_codisp", new_codisp)
-            #print("point test", point2)
-            # And take the average over all trees
-            #print("index train", indexTrain)
+            #Y toma el promedio sobre todos los árboles
             if not indexTrain in avg_codisp:
-                
                 avg_codispTest[index2] = 0
                 avg_codisp[indexTrain] = 0
 
             avg_codisp[indexTrain] += new_codisp / num_trees
             avg_codispTest[index2] += new_codisp / num_trees
-            #print(new_codisp / num_trees)
 
-            #print("Antes de que se olvide el punto", forest)
+            #Elimina el nuevo punto del árbol
             tree.forget_point(indexTrain)
             
         indexTrain= indexTrain + 1
 
-    #print("Forest final borrados todos los puntos test", forest)
-
 train(forest)
-#print("Array codisp antes del test", avg_codisp)
 test(forest)
 
-#print("Array codisp despues del test", avg_codisp)
-print(len(avg_codisp))
 
-#print("Array codisp despues del test", avg_codisp)
 print("Tamaño anormaly score total", len(avg_codisp))
-
 print("Tamaño anormaly score test", len(avg_codispTest))
 
+#Calcular el numero de anomalias detectados por el algoritmo, que superen el filtro
 ptosAnomalias= []
 for h in range(len(avg_codispTest)):
     if(avg_codispTest[h] > 0):
         ptosAnomalias.append(avg_codispTest[h])
 
-#print(ptosAnomalias)
 print("Total puntos detectados como anomalias:", len(ptosAnomalias) )
 Acierto = (len(ptosAnomalias)/totalPtosAnomalia)*100
 print("Acierto: ", Acierto)
 
 
-
+#Grafico donde se representan los datos y las anomalias detectadas.
 fig, ax1 = plt.subplots(figsize=(10, 5))
 
 color = 'tab:red'
