@@ -1,0 +1,26 @@
+<annotation>
+	<folder>JPEGImages</folder>
+	<filename>2020-04-04 17.57.04.jpg</filename>
+	<path>/Users/jennygonzalez/Documents/models/research/object_detection/OwnDataset/dataset/JPEGImages/2020-04-04 17.57.04.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>300</width>
+		<height>400</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>breakfast</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>61</xmin>
+			<ymin>75</ymin>
+			<xmax>276</xmax>
+			<ymax>385</ymax>
+		</bndbox>
+	</object>
+</annotation>
