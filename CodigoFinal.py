@@ -351,7 +351,7 @@ muTimeFinTrain = MediaPuntoFinalRound #Media - Calculada de la experimentacion
 sigmaTimeFinTrain = DesvPuntoFinal #Desviacion Estandar - Calculada de la experimentacion
 numRTimeFinTrain =  100
 
-SizeTrains =10 #Dias sintenticos que se quieren crear para el entrenamiento
+SizeTrains =14 #Dias sintenticos que se quieren crear para el entrenamiento
 wi = 0
 wiAnt =0 #wi-1
 landa = 10 #λ
@@ -460,7 +460,7 @@ p = 0
 
 #Creacion - Puntos tiempo
 NPointsRTimeComTest = []
-pointsTimeComTest =  np.random.randint(747.75, 1495.5, size=20) #6:00h -> 747.75, 12:00h -> 1495.5
+pointsTimeComTest =  np.random.randint(747.75, 1495.5, size=10) #6:00h -> 747.75, 12:00h -> 1495.5
                                                           
 NPointsRTimeSortedComTest =sorted(pointsTimeComTest)
 
@@ -642,9 +642,9 @@ print()
 print("Total puntos con anomalias:", totalPtosAnomalia )
 
 #Establecer parametros de arbol
-num_trees = 15
-shingle_size = 5
-tree_size = 10
+num_trees = 20
+shingle_size = 2
+tree_size = 15
 
 #Crear un bosque de arboles vacios
 forest = []
@@ -712,7 +712,7 @@ print("Tamaño anormaly score test", len(avg_codispTest))
 #Calcular el numero de anomalias detectados por el algoritmo, que superen el filtro
 ptosAnomalias= []
 for h in range(len(avg_codispTest)):
-    if(avg_codispTest[h] > 0):
+    if(avg_codispTest[h] > 4000):
         ptosAnomalias.append(avg_codispTest[h])
 
 print("Total puntos detectados como anomalias:", len(ptosAnomalias) )
